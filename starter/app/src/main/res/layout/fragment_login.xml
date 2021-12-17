@@ -10,16 +10,13 @@
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/login_Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/login_Title"
-        android:textColor="@color/colorPrimary"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/email_Input"
+        app:layout_constraintBottom_toTopOf="@+id/email_Label"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/app_Title" />
 
     <TextView
         android:id="@+id/email_Label"
@@ -41,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:ems="10"
         android:hint="@string/email_Hint"
         android:inputType="textPersonName"
@@ -50,6 +47,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/email_Label"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
@@ -75,7 +73,7 @@
         android:ems="10"
         android:hint="@string/password_Hint"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/existingLogin_Button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/password_Label"
@@ -86,26 +84,29 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/newLogin_Button"
         android:textSize="21sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/existingLogin_Button"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/existingLogin_Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_Input"
+        app:layout_constraintVertical_bias="0.26999998"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/existingLogin_Button"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
         android:text="@string/existingAcct_Button"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/newLogin_Buttton" />
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newLogin_Buttton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
