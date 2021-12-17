@@ -2,4 +2,17 @@
     <string name="app_name">ShoeStore</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email_Label">Email :</string>
+    <string name="newLogin_Button">New Login</string>
+    <string name="existingAcct_Button">Existing Account Login</string>
+    <string name="password_Label">Password :</string>
+    <string name="email_Hint">Email</string>
+    <string name="password_Hint">Password</string>
+    <string name="login_Title">Login</string>
+    <string name="welcome_Title">Welcome!</string>
+    <string name="welcome_Text">Thanks for visiting our shoe store! I hope you find what you are looking for. We have many different selections for both men and women. Feel free to reach out and contact us if you have any questions or concerns.</string>
+    <string name="welcome_button">Continue</string>
+    <string name="instruction_Button">Start Shopping!</string>
+    <string name="instructions_Title">Instructions</string>
+    <string name="instructions_Text">Instructions:\n\u2022\tScroll though list of shoes available\n\u2022\Tap on an item you like to learn more</string>
 </resources>
