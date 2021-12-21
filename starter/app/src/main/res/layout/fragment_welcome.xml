@@ -9,12 +9,12 @@
 
     <TextView
         android:id="@+id/welcome_title"
+        style="@style/app_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:text="@string/welcome_Title"
         android:textColor="@color/colorPrimary"
-        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/welcome_Text"
         app:layout_constraintEnd_toEndOf="parent"
