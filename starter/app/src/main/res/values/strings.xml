@@ -15,4 +15,5 @@
     <string name="instruction_Button">Start Shopping!</string>
     <string name="instructions_Title">Instructions</string>
     <string name="instructions_Text">Instructions:\n\u2022\tScroll though list of shoes available\n\u2022\Tap on an item you like to learn more</string>
+    <string name="shoeList_Title">Shoe List</string>
 </resources>
