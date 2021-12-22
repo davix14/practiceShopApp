@@ -33,9 +33,10 @@
         app:layout_constraintTop_toBottomOf="@+id/shoeList_Title">
 
         <LinearLayout
-            android:id="@+id/shoeList_LinearLayout"
+            android:id="@+id/shoeList_LinearLayoutV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            android:padding="5dp" />
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import com.udacity.shoestore.databinding.FragmentShoeListBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +23,8 @@ class ShoeList : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentShoeListBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,8 +37,21 @@ class ShoeList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentShoeListBinding.inflate(layoutInflater, container, false)
+
+        //  save view in var to edit before adding to activity
+        var item1: View = getLayoutInflater().inflate(R.layout.shoelist_item_layout, null)
+        var image1: ImageView = item1.findViewById<ImageView>(R.id.shoeListItem_Image)
+        image1.setImageResource(R.drawable.shoe1)
+
+//        binding.shoeListLinearLayoutV.addView()
+        binding.shoeListLinearLayoutV.addView(item1)
+        binding.shoeListLinearLayoutV.addView(getLayoutInflater().inflate(R.layout.shoelist_item_layout, null))
+        binding.shoeListLinearLayoutV.addView(getLayoutInflater().inflate(R.layout.shoelist_item_layout, null))
+        binding.shoeListLinearLayoutV.addView(getLayoutInflater().inflate(R.layout.shoelist_item_layout, null))
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shoe_list, container, false)
+        return binding.root
     }
 
     companion object {

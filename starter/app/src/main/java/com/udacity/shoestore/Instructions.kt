@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import com.udacity.shoestore.databinding.FragmentInstructionsBinding
+import kotlinx.android.synthetic.main.shoelist_item_layout.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,20 +24,31 @@ class Instructions : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var binding: FragmentInstructionsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentInstructionsBinding.inflate(layoutInflater, container, false)
+
+
+        //  Set click listener for button to navigate to the next fragment
+        binding.instructionNextButton.setOnClickListener(View.OnClickListener {
+            it.findNavController().navigate(R.id.action_instructions_to_shoeList)
+        })
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_instructions, container, false)
+        return binding.root
     }
 
     companion object {
