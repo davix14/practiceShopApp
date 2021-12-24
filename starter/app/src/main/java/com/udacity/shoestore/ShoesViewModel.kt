@@ -9,7 +9,7 @@ class ShoesViewModel : ViewModel() {
     //  fill arrayList with objects of SHOE model
     val shoes: LiveData<ArrayList<Shoe>>
         get() {
-            return shoes
+            return _shoes
         }
 
     private lateinit var _shoes: MutableLiveData<ArrayList<Shoe>>
@@ -45,7 +45,7 @@ class ShoesViewModel : ViewModel() {
     )
 
     init {
-        _shoes.value =
+        _shoes = MutableLiveData(
             arrayListOf<Shoe>(
                 shoe1,
                 shoe2,
@@ -55,6 +55,7 @@ class ShoesViewModel : ViewModel() {
                 shoe6,
                 shoe7
             )
+        )
 
 
     }

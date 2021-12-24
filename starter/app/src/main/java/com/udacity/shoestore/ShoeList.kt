@@ -6,6 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,6 +30,8 @@ class ShoeList : Fragment() {
 
     private lateinit var binding: FragmentShoeListBinding
 
+    private lateinit var viewModel: ShoesViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,16 +46,28 @@ class ShoeList : Fragment() {
     ): View? {
         binding = FragmentShoeListBinding.inflate(layoutInflater, container, false)
 
-        //  save view in var to edit before adding to activity
-        var item1: View = getLayoutInflater().inflate(R.layout.shoelist_item_layout, null)
-        var image1: ImageView = item1.findViewById<ImageView>(R.id.shoeListItem_Image)
-        image1.setImageResource(R.drawable.shoe1)
+        viewModel = ViewModelProvider(this).get(ShoesViewModel::class.java)
 
-//        binding.shoeListLinearLayoutV.addView()
-        binding.shoeListLinearLayoutV.addView(item1)
-        binding.shoeListLinearLayoutV.addView(getLayoutInflater().inflate(R.layout.shoelist_item_layout, null))
-        binding.shoeListLinearLayoutV.addView(getLayoutInflater().inflate(R.layout.shoelist_item_layout, null))
-        binding.shoeListLinearLayoutV.addView(getLayoutInflater().inflate(R.layout.shoelist_item_layout, null))
+        arrayListOf<View>()
+
+        //  observe shoes liveData for list of shoes
+        viewModel.shoes.observe(viewLifecycleOwner, Observer {
+            for (shoe in it) {
+                //  create new view from shoelist_Item layout
+                val item: View = getLayoutInflater().inflate(R.layout.shoelist_item_layout, null)
+                //  set name
+                val name = item.findViewById<TextView>(R.id.shoeItem_shoeName_Text)
+                name.setText(shoe.name)
+                //  set company
+                val company = item.findViewById<TextView>(R.id.shoeItem_company_Text)
+                company.setText(shoe.company)
+                //  set image
+                val image = item.findViewById<ImageView>(R.id.shoeListItem_Image)
+                image.setImageResource(shoe.images.get(0))
+                //  add to linear layout view
+                binding.shoeListLinearLayoutV.addView(item)
+            }
+        })
 
         // Inflate the layout for this fragment
         return binding.root

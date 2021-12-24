@@ -40,14 +40,14 @@
                 android:paddingTop="5dp">
 
                 <TextView
-                    android:id="@+id/shoeName_Text"
+                    android:id="@+id/shoeItem_shoeName_Text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="shoe name"
                     android:textAlignment="viewEnd" />
 
                 <TextView
-                    android:id="@+id/company_Text"
+                    android:id="@+id/shoeItem_company_Text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="company"
