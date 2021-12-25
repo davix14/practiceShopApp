@@ -43,6 +43,14 @@ class ShoesViewModel : ViewModel() {
         "JakInBox", 6.5, "Smalleez", "Great shoes for anything",
         mutableListOf(R.drawable.shoe7)
     )
+    val shoe8: Shoe = Shoe(
+        "Vapors", 8.0, "Nike", "Great shoes for anything",
+        mutableListOf(R.drawable.shoe8)
+    )
+    val shoe9: Shoe = Shoe(
+        "FlyKnit", 8.5, "NIke", "Great shoes for anything",
+        mutableListOf(R.drawable.shoe9)
+    )
 
     init {
         _shoes = MutableLiveData(
@@ -53,7 +61,9 @@ class ShoesViewModel : ViewModel() {
                 shoe4,
                 shoe5,
                 shoe6,
-                shoe7
+                shoe7,
+                shoe8,
+                shoe9
             )
         )
 
