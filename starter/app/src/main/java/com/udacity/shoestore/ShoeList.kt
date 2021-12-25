@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -44,8 +46,8 @@ class ShoeList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentShoeListBinding.inflate(layoutInflater, container, false)
-
+//        binding = FragmentShoeListBinding.inflate(layoutInflater, container, false)
+             binding = FragmentShoeListBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(ShoesViewModel::class.java)
 
         arrayListOf<View>()
