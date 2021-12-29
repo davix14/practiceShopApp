@@ -16,4 +16,9 @@
     <string name="instructions_Title">Instructions</string>
     <string name="instructions_Text">Instructions:\n\u2022\tScroll though list of shoes available\n\u2022\Tap on an item you like to learn more</string>
     <string name="shoeList_Title">Shoe List</string>
+    <string name="shoeDetail_Title">New Shoe Detail</string>
+    <string name="newShoeName_Label">Name :</string>
+    <string name="newShoeCompany_Label">Company :</string>
+    <string name="newShoeSize_Label">Shoe Size :</string>
+    <string name="newShoeDescription_Label">Description :</string>
 </resources>

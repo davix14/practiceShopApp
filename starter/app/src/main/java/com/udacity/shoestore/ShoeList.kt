@@ -13,6 +13,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -70,6 +72,11 @@ class ShoeList : Fragment() {
                 binding.shoeListLinearLayoutV.addView(item)
             }
         })
+
+        //  adding onClickListener for floating action button to navigate to the detail
+        binding.shoeDetailNewFAB.setOnClickListener {
+            it.findNavController().navigate(R.id.action_shoeList_to_shoeDetail)
+        }
 
         // Inflate the layout for this fragment
         return binding.root
