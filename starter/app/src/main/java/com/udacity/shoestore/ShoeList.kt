@@ -49,8 +49,8 @@ class ShoeList : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 //        binding = FragmentShoeListBinding.inflate(layoutInflater, container, false)
-             binding = FragmentShoeListBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(ShoesViewModel::class.java)
+        binding = FragmentShoeListBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(requireActivity()).get(ShoesViewModel::class.java)
 
         arrayListOf<View>()
 
@@ -67,7 +67,9 @@ class ShoeList : Fragment() {
                 company.setText(shoe.company)
                 //  set image
                 val image = item.findViewById<ImageView>(R.id.shoeListItem_Image)
-                image.setImageResource(shoe.images.get(0))
+                if (shoe.images.isNotEmpty()) {
+                    image.setImageResource(shoe.images.get(0))
+                }
                 //  add to linear layout view
                 binding.shoeListLinearLayoutV.addView(item)
             }

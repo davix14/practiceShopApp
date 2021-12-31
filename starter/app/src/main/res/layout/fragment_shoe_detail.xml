@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Shoe Size"
-                    android:inputType="textPersonName" />
+                    android:inputType="number|numberDecimal" />
             </TableRow>
 
             <TableRow

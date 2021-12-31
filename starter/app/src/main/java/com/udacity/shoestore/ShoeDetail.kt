@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 
@@ -24,6 +26,8 @@ class ShoeDetail : Fragment() {
     private var param2: String? = null
 
     private lateinit var binding: FragmentShoeDetailBinding
+
+    private lateinit var viewModel: ShoesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +52,22 @@ class ShoeDetail : Fragment() {
 
             it.findNavController().navigate(R.id.action_shoeDetail_to_shoeList)
         }
+
+        binding.newShoeSaveButton.setOnClickListener {
+            //  get values from UI
+            val name = binding.newShoeNameInput.text.toString()
+            val company = binding.newShoeCompanyInput.text.toString()
+            val size: Double = binding.newShoeSizeInput.text.toString().toDouble()
+            val description = binding.newShoeDescriptionInput.toString()
+            //  Create new entry in the viewModel
+            viewModel.newShoeEntry(name, size, company, description)
+            //  Create toast to let user know of successful save
+            Toast.makeText(context, "SAVED!!", Toast.LENGTH_LONG).show()
+        }
+
+        //  Create shared viewModel
+        viewModel = ViewModelProvider(requireActivity()).get(ShoesViewModel::class.java)
+
         // Inflate the layout for this fragment
         return binding.root
     }

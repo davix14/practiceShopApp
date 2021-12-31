@@ -14,6 +14,8 @@ class ShoesViewModel : ViewModel() {
 
     private lateinit var _shoes: MutableLiveData<ArrayList<Shoe>>
 
+    private lateinit var listOfShoes : ArrayList<Shoe>
+
     val shoe1: Shoe = Shoe(
         "David", 9.5,
         "Nike", "Great shoes for anything",
@@ -53,22 +55,33 @@ class ShoesViewModel : ViewModel() {
     )
 
     init {
+        listOfShoes = arrayListOf<Shoe>(
+            shoe1,
+            shoe2,
+            shoe3,
+            shoe4,
+            shoe5,
+            shoe6,
+            shoe7,
+            shoe8,
+            shoe9
+        )
         _shoes = MutableLiveData(
-            arrayListOf<Shoe>(
-                shoe1,
-                shoe2,
-                shoe3,
-                shoe4,
-                shoe5,
-                shoe6,
-                shoe7,
-                shoe8,
-                shoe9
-            )
+            listOfShoes
         )
 
 
     }
 
+    public fun newShoeEntry(name: String, size: Double, company: String, description: String){
+        //  create new Shoe object
+        var newShoe: Shoe = Shoe(
+                name, size, company, description, arrayListOf()
+                )
+        //  add new obj to listOfShoes
+        listOfShoes.add(newShoe)
+        //  update mLiveData
+        _shoes.value = listOfShoes
+    }
 
 }
